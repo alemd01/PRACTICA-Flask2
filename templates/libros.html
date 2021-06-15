@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="utf-8" />
+   <title>{{ almacen.title }}</title>
+</head>
+
+ <body>
+   <h1>Alejandro Montes.</h1>
+   <img src="{{ almacen.thumbnailUrl }}"
+   <br>
+   <h4>Numero de páginas: {{ almacen.pageCount}}</h4>
+   <h2>Resumen</h2>
+      <p>{{ almacen.shortDescription }}</p>
+   <h2>Descripción</h2>
+      <p>{{ almacen.longDescription }}</p>
+   <br/>
+   <h2>Autores</h2>
+   <ul>
+     {%for autores in almacen.authors -%}
+      <li><a>{{ autores }}</a></li>
+     {% endfor -%}
+   </ul>
+   <h2>Categorias</h2>
+   <ul>
+     {% for categoria in almacen.categories -%}
+        <li><a>{{categoria}}</a></li>
+     {% endfor -%}
+   </ul>
+   {% if almacen.status == "PUBLISH" %}
+      <p>El libro se ha publicado.</p>
+   {% else %}
+      <p>El libro no se ha publicado.</p>
+   {% endif %}
+   <a href="/">Inicio</a>
+   </body>
+</html>
