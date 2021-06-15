@@ -11,8 +11,8 @@ def inicio():
 
 @app.route('/libros/<isbn>')
 def saca_isbn(isbn):
-    for libro in libros
-        if libro.get(isbn)==isbn:
+    for libro in libros:
+        if libro.get("isbn")==isbn:
             return render_template("libros.html",almacen=libro)
     abort(404)
 
